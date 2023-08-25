@@ -29,3 +29,7 @@ doc/api/
 .DS_Store
 Sbeve.db
 Display.txt
+db.sqlite3
+__pycache__/
+migrations/
+```
