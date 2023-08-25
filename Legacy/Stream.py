@@ -10,6 +10,8 @@ def update():
 
     # career(saves,shots,svpct,season,tot_games,num_wins,num_loss,num_otl,winpct,pu)
     stats = cur.execute("SELECT * FROM career").fetchone()
+    if type(stats) == type(None):
+        stats = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
     display_line += "Saves: {}                          ".format(stats[0])
     display_line += "Shots: {}                          ".format(stats[1])
@@ -68,13 +70,26 @@ def nhl():
     all_abbreviations = nhl_abbreviations + ahl_abbreviations + ohl_abbreviations + whl_abbreviations + qmjhl_abbreviations
     abbreviations = {"NHL": nhl_abbreviations, "AHL": ahl_abbreviations, "OHL": ohl_abbreviations, "WHL": whl_abbreviations, "QMJHL": qmjhl_abbreviations, "MEM": all_abbreviations}
     
+    
     while True:
         data = cur.execute("SELECT * FROM data").fetchone()
         print(data)
-        league = data[0]
-        curr_team = data[1]
-        print(curr_team)
-        season = data[2]
+        if type(data) == type(None):
+            while True:
+                    league = input("Enter league, or MEM for memorial cup: ").upper()
+                    if not league in ["NHL", "AHL", "OHL", "QMJHL", "WHL", "MEM"]:
+                        input("League is invalid, please try again.")
+                        continue   
+                    team = input("Enter the new team initials: ").upper().strip()
+                    if team in abbreviations[league]:
+                        break
+                    else:
+                        input("Invalid team name, please try again.")
+        else:
+            league = data[0]
+            curr_team = data[1]
+            print(curr_team)
+            season = data[2]
         print("_________________________________________")
         prev_game = cur.execute("SELECT result, shots, saves, pushups, opp_team FROM games WHERE id = (SELECT MAX(id) FROM games)").fetchone()
         try:

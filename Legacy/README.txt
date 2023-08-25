@@ -1,0 +1,1 @@
+This code was used a long time ago, when I needed a program that could update a statline on my twitch streams. I used it whenever I played goalie in nhl games, and as such is targeted towards that niche. I include it here to show where I came up with the idea.
