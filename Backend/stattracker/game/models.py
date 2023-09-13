@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 
-class Game(models.model)
+class Game(models.Model):
+    game_id = models.AutoField(primary_key=True)
     home_team = models.CharField(max_length=20)
     away_team = models.CharField(max_length=20)
     player_team = models.CharField(max_length=20)
@@ -10,6 +11,7 @@ class Game(models.model)
     season = models.CharField(max_length=20)
     playoff_game = models.BooleanField()
     league = models.CharField(max_length=20)
+    character = models.ForeignKey('character.Character', on_delete=models.CASCADE, null=True)
 
     class meta:
         abstract = True
