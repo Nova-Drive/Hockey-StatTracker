@@ -33,7 +33,7 @@ class GoalieStats(Game):
     shots_against = models.IntegerField()
     goals_against = models.IntegerField()
     saves = models.IntegerField()
-    save_percentage = models.IntegerField()
+    save_percentage = models.DecimalField(max_digits=4, decimal_places=3)
     shutouts = models.IntegerField()
     minutes_played = models.IntegerField()
     goals_against_average = models.DecimalField(max_digits=4, decimal_places=2)

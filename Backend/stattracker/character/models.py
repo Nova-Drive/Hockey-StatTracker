@@ -3,14 +3,15 @@ from django.db import models
 # Create your models here.
 
 class Character(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=20)
     position = models.CharField(max_length=20)
     team = models.CharField(max_length=20)
     user = models.ForeignKey('user.User', on_delete=models.CASCADE, null=True)
 
-    class meta:
-        unique_together = ('user', 'name') # character names are not unique, but character names per user are unique
-
+    def __str__(self):
+        return self.name
+    
     def get_name(self):
         return self.name
     
