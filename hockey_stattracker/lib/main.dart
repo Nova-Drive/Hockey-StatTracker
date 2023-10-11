@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'nav.dart';
+import 'counterWidget.dart';
+import 'home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -87,20 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedIndex: _currentPageIndex,
       ),
       body: <Widget>[
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'Hi Abi!',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
-          ),
-        ),
+        HomeScreen(),
         Center(
           child: Text('Search'),
         ),

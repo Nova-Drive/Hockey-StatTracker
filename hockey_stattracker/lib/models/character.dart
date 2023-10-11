@@ -19,7 +19,7 @@ class Character {
         'name': name,
         'position': position,
         'team': team,
-        'user': user.name,
+        'user': user.username,
       };
 
   @override

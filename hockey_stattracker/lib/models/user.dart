@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
 class User {
-  final String name;
+  final String username;
   final String email;
 
-  User(this.name, this.email);
+  User(this.username, this.email);
 
   User.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
+      : username = json['username'],
         email = json['email'];
 
   Map<String, dynamic> toJson() => {
-        'name': name,
+        'username': username,
         'email': email,
       };
 
   @override
   String toString() {
-    return 'User{name: $name, email: $email}';
+    return 'User{username: $username, email: $email}';
   }
 }
