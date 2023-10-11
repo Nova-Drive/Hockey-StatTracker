@@ -9,11 +9,11 @@ class Character {
 
   Character(this.name, this.position, this.team, this.user);
 
-  Character.fromJson(Map<String, dynamic> json)
+  Character.fromJson(Map<String, dynamic> json, User user)
       : name = json['name'],
         position = json['position'],
         team = json['team'],
-        user = User.fromJson(json['user']);
+        this.user = user;
 
   Map<String, dynamic> toJson() => {
         'name': name,

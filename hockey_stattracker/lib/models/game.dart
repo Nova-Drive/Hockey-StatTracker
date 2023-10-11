@@ -57,7 +57,7 @@ class PlayerGame extends Game {
       : super(gameID, homeTeam, awayTeam, playerTeam, date, season, league,
             playoffGame, character);
 
-  PlayerGame.fromJson(Map<String, dynamic> json)
+  PlayerGame.fromJson(Map<String, dynamic> json, Character character)
       : shots = json['shots'],
         goals = json['goals'],
         assists = json['assists'],
@@ -78,7 +78,7 @@ class PlayerGame extends Game {
           json['season'],
           json['league'],
           json['playoffGame'],
-          Character.fromJson(json['character']),
+          character,
         );
 
   Map<String, dynamic> toJson() => {
@@ -134,7 +134,7 @@ class GoalieGame extends Game {
       : super(gameID, homeTeam, awayTeam, playerTeam, date, season, league,
             playoffGame, character);
 
-  GoalieGame.fromJson(Map<String, dynamic> json)
+  GoalieGame.fromJson(Map<String, dynamic> json, Character character)
       : shotsAgainst = json['shotsAgainst'],
         goalsAgainst = json['goalsAgainst'],
         saves = json['saves'],
@@ -151,7 +151,7 @@ class GoalieGame extends Game {
           json['season'],
           json['league'],
           json['playoffGame'],
-          Character.fromJson(json['character']),
+          character,
         );
 
   Map<String, dynamic> toJson() => {
