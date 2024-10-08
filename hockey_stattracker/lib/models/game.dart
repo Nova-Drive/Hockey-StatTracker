@@ -1,5 +1,4 @@
 import 'character.dart';
-import 'package:flutter/material.dart';
 
 abstract class Game {
   final int gameID;

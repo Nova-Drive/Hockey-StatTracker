@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'counterWidget.dart';
 import 'home.dart';
 
 void main() {
@@ -52,7 +51,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
   int _currentPageIndex = 0;
 
   @override
@@ -95,7 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
         Center(
           child: Text('Favorites'),
         ),
-        CounterWidget(),
       ][_currentPageIndex],
     );
   }
