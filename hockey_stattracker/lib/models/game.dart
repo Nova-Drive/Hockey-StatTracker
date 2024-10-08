@@ -4,6 +4,8 @@ abstract class Game {
   final int gameID;
   final String homeTeam;
   final String awayTeam;
+  final int homeScore;
+  final int awayScore;
   final String playerTeam;
   final String date;
   final String season;
@@ -11,8 +13,19 @@ abstract class Game {
   final bool playoffGame;
   final Character character;
 
-  Game(this.gameID, this.homeTeam, this.awayTeam, this.playerTeam, this.date,
-      this.season, this.league, this.playoffGame, this.character);
+  Game(
+    this.gameID,
+    this.homeTeam,
+    this.awayTeam,
+    this.playerTeam,
+    this.homeScore,
+    this.awayScore,
+    this.date,
+    this.season,
+    this.league,
+    this.playoffGame,
+    this.character,
+  );
 
   //Game.fromJson(Map<String, dynamic> json);
 
@@ -48,13 +61,15 @@ class PlayerGame extends Game {
       String homeTeam,
       String awayTeam,
       String playerTeam,
+      int homeScore,
+      int awayScore,
       String date,
       String season,
       String league,
       bool playoffGame,
       Character character)
-      : super(gameID, homeTeam, awayTeam, playerTeam, date, season, league,
-            playoffGame, character);
+      : super(gameID, homeTeam, awayTeam, playerTeam, homeScore, awayScore,
+            date, season, league, playoffGame, character);
 
   PlayerGame.fromJson(Map<String, dynamic> json, Character character)
       : shots = json['shots'],
@@ -73,6 +88,8 @@ class PlayerGame extends Game {
           json['homeTeam'],
           json['awayTeam'],
           json['playerTeam'],
+          json['homeScore'],
+          json['awayScore'],
           json['date'],
           json['season'],
           json['league'],
@@ -80,11 +97,14 @@ class PlayerGame extends Game {
           character,
         );
 
+  @override
   Map<String, dynamic> toJson() => {
         'gameID': gameID,
         'homeTeam': homeTeam,
         'awayTeam': awayTeam,
         'playerTeam': playerTeam,
+        'homeScore': homeScore,
+        'awayScore': awayScore,
         'date': date,
         'season': season,
         'league': league,
@@ -125,13 +145,15 @@ class GoalieGame extends Game {
       String homeTeam,
       String awayTeam,
       String playerTeam,
+      int homeScore,
+      int awayScore,
       String date,
       String season,
       String league,
       bool playoffGame,
       Character character)
-      : super(gameID, homeTeam, awayTeam, playerTeam, date, season, league,
-            playoffGame, character);
+      : super(gameID, homeTeam, awayTeam, playerTeam, homeScore, awayScore,
+            date, season, league, playoffGame, character);
 
   GoalieGame.fromJson(Map<String, dynamic> json, Character character)
       : shotsAgainst = json['shotsAgainst'],
@@ -146,6 +168,8 @@ class GoalieGame extends Game {
           json['homeTeam'],
           json['awayTeam'],
           json['playerTeam'],
+          json['homeScore'],
+          json['awayScore'],
           json['date'],
           json['season'],
           json['league'],
@@ -153,11 +177,14 @@ class GoalieGame extends Game {
           character,
         );
 
+  @override
   Map<String, dynamic> toJson() => {
         'gameID': gameID,
         'homeTeam': homeTeam,
         'awayTeam': awayTeam,
         'playerTeam': playerTeam,
+        'homeScore': homeScore,
+        'awayScore': awayScore,
         'date': date,
         'season': season,
         'league': league,
