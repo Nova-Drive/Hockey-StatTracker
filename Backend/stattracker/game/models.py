@@ -7,6 +7,8 @@ class Game(models.Model):
     home_team = models.CharField(max_length=20)
     away_team = models.CharField(max_length=20)
     player_team = models.CharField(max_length=20)
+    home_score = models.IntegerField()
+    away_score = models.IntegerField()
     date = models.DateField()
     season = models.CharField(max_length=20)
     playoff_game = models.BooleanField()
